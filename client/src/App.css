@@ -1,3 +1,24 @@
-* {
-  margin: 0;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.center-content {
+  text-align: left; 
+}
+body {
+  font-family: Arial, sans-serif;
+}
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+.error {
+  color: red;
 }
