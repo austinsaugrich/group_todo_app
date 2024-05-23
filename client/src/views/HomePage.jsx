@@ -73,6 +73,7 @@ const HomePage = () => {
             </table>
         </div>
     );
+    
 }
 
 export default HomePage;

@@ -1,13 +1,12 @@
-import { useParams, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function TaskDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [task, setTask] = useState({
         name: "",
-        // minutes: 0,
         details: "",
         date: "",
     });
@@ -24,17 +23,23 @@ function TaskDetails() {
     }, [id]);
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:8000/api/task/${id}`)
-            .then(response => {
-                console.log(response);
-                navigate("/");
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        const confirmDelete = window.confirm("Sure you want to delete?");
+        if (confirmDelete) {
+            axios.delete(`http://localhost:8000/api/task/${id}`)
+                .then(response => {
+                    console.log(response);
+                    navigate("/");
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
     };
 
-    // Basic date formatting function
+    const handleBack = () => {
+        navigate("/");
+    };
+
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const day = date.getDate();
@@ -48,10 +53,6 @@ function TaskDetails() {
             <h2>Task of {task.name} Details</h2>
             <table>
                 <tbody>
-                    {/* <tr>
-                        <td>Task Time:</td>
-                        <td>{task.minutes} minutes</td>
-                    </tr> */}
                     <tr>
                         <td>Task Date:</td>
                         <td>{formatDate(task.date)}</td>
@@ -62,7 +63,8 @@ function TaskDetails() {
                     </tr>
                 </tbody>
             </table>
-            <button onClick={handleDelete} style={{ marginTop: '10px' }}>REMOVE</button>
+            <button onClick={handleBack} style={{ marginRight: '10px' }}>BACK</button>
+            <button onClick={handleDelete}>REMOVE</button>
         </div>
     );
 }

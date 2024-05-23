@@ -9,9 +9,8 @@ const Update = () => {
     const navigate = useNavigate();
     const [task, setTask] = useState({
         name: "",
-        // minutes: 0,
         details: "",
-        takdate: "",
+        date: "",
     });
     const [errors, setErrors] = useState({});
 
@@ -42,6 +41,10 @@ const Update = () => {
             });
     }
 
+    const handleBack = () => {
+        navigate("/");
+    };
+
     return (
         <div>
             <h1>To Do List</h1>
@@ -57,13 +60,6 @@ const Update = () => {
                                     <p className="error">{errors.name ? errors.name.message : null}</p>
                                 </td>
                             </tr>
-                            {/* <tr>
-                                <td>Minutes:</td>
-                                <td>
-                                    <input type="number" name="minutes" value={task.minutes} onChange={handleChange} />
-                                    <p className="error">{errors.minutes ? errors.minutes.message : null}</p>
-                                </td>
-                            </tr> */}
                             <tr>
                                 <td>Task Details:</td>
                                 <td>
@@ -80,7 +76,8 @@ const Update = () => {
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" style={{ marginTop: '10px' }}>UPDATE</button>
+                <button onClick={handleBack}>BACK</button>
+                <button type="submit" style={{ marginLeft: '10px' }}>UPDATE</button>
             </form>
         </div>
     );
