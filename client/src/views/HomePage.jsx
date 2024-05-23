@@ -42,28 +42,28 @@ const HomePage = () => {
     const sortedTasks = tasks.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
 
     return (
-        <div>
-            <table>
+        <div class="">
+            <table class="table-auto w-full border-collapse bg-gray-700 text-gray-100 mt-5 mb-5">
                 <thead>
                     <tr>
-                        <th>Tasks</th>
-                        <th>Due Date</th>
-                        <th>Options</th>
-                        <th>Complete</th>
+                        <th class="px-4 py-2">Tasks</th>
+                        <th class="px-4 py-2">Due Date</th>
+                        <th class="px-4 py-2">Options</th>
+                        <th class="px-4 py-2">Complete</th>
                     </tr>
                 </thead>
                 <tbody>
                     {sortedTasks.map((task) => (
-                        <tr key={task._id}>
-                            <td style={{ textDecoration: task.isCompleted ? 'line-through' : 'none' }}>{task.name}</td>
-                            <td style={{ textDecoration: task.isCompleted ? 'line-through' : 'none' }}>{formatDate(task.date)}</td>
-                            <td>
-                                <Link to={`/dets/${task._id}`}>details</Link>
+                        <tr key={task._id} class="bg-gray-600">
+                            <td class="px-4 py-2" style={{ textDecoration: task.isCompleted ? 'line-through' : 'none' }}>{task.name}</td>
+                            <td class="px-4 py-2" style={{ textDecoration: task.isCompleted ? 'line-through' : 'none' }}>{formatDate(task.date)}</td>
+                            <td class="px-4 py-2">
+                                <Link class="text-blue-500 font-bold hover:text-blue-600" to={`/dets/${task._id}`}>Details</Link>
                                 <span> | </span>
-                                <Link to={`/update/${task._id}`}>edit</Link>
+                                <Link class="text-blue-500 font-bold hover:text-blue-600" to={`/update/${task._id}`}>Edit</Link>
                             </td>
                             <td>
-                                <button onClick={() => toggleComplete(task._id)}>
+                                <button class = "inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md " onClick={() => toggleComplete(task._id)}>
                                     {task.isCompleted ? 'Undo' : 'Complete'}
                                 </button>
                             </td>

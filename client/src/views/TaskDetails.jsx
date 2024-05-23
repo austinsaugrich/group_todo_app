@@ -49,22 +49,22 @@ function TaskDetails() {
     };
 
     return (
-        <div>
-            <h2>Task of {task.name} Details</h2>
-            <table>
+        <div class="mt-5">
+            <h2 class="flex justify-center italic text-2xl  text-blue-500 font-bold">{task.name} Details</h2>
+            <table class="table-auto w-full border-collapse bg-gray-700 text-gray-100 mt-5 ">
                 <tbody>
                     <tr>
-                        <td>Task Date:</td>
-                        <td>{formatDate(task.date)}</td>
+                        <td class="px-4 py-2">Task Date:</td>
+                        <td class="px-4 py-2">{formatDate(task.date)}</td>
                     </tr>
                     <tr>
-                        <td>Task Details:</td>
-                        <td>{task.details}</td>
+                        <td class="px-4 py-2">Task Details:</td>
+                        <td class="px-4 py-2">{task.details}</td>
                     </tr>
                 </tbody>
             </table>
-            <button onClick={handleBack} style={{ marginRight: '10px' }}>BACK</button>
-            <button onClick={handleDelete}>REMOVE</button>
+            <button class="mb-5 mt-5 px-4 py-2 text-white bg-blue-500  hover:bg-blue-600 font-semibold rounded-lg shadow-md" onClick={handleBack} style={{ marginRight: '10px' }}>BACK</button>
+            <button class="mb-5 mt-5 px-4 py-2 text-white bg-red-500  hover:bg-red-600 font-semibold rounded-lg shadow-md" onClick={handleDelete}>REMOVE</button>
         </div>
     );
 }

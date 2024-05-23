@@ -10,7 +10,7 @@ import './App.css';
 function App() {
     return (
         <BrowserRouter>
-            <div className="container">
+            <div class=" py-8 container px-8 mx-auto rounded-xl shadow-2xl space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6 pb-12 flex justify-around background-color: rgb(253 224 71)">
                 <div className="center-content">
                     <Nav />
                     <Routes>

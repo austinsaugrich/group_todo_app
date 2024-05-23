@@ -46,38 +46,38 @@ const Update = () => {
     };
 
     return (
-        <div>
-            <h1>To Do List</h1>
+        <div class="space-y-5">
+            <h1 class="underline font-bold text-6xl flex justify-center">To Do List</h1>
             <Nav taskId={id} />
-            <h2>Update your {task.name} Task</h2>
+            <h2 class="flex justify-center italic text-2xl  text-blue-500 font-bold">Update your {task.name} Task</h2>
             <form onSubmit={handleSubmit}>
-                <table>
+                <table class="table-auto w-full border-collapse bg-gray-700 text-gray-100 mt-5 ">
                     <tbody>
                         <tr>
-                            <td>Task Name:</td>
-                                <td>
-                                    <input type="text" name="name" value={task.name} onChange={handleChange} />
+                            <td class="px-4 py-2">Task Name:</td>
+                                <td class="px-4 py-2">
+                                    <input class="bg-gray-500 rounded-lg p-2" type="text" name="name" value={task.name} onChange={handleChange} />
                                     <p className="error">{errors.name ? errors.name.message : null}</p>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Task Details:</td>
-                                <td>
-                                    <input type="text" name="details" value={task.details} onChange={handleChange} />
+                                <td class="px-4 py-2">Task Details:</td>
+                                <td class="px-4 py-2">
+                                    <input class="bg-gray-500 rounded-lg p-2" type="text" name="details" value={task.details} onChange={handleChange} />
                                     <p className="error">{errors.details ? errors.details.message : null}</p>
                                 </td>
                         </tr>
                         <tr>
-                            <td>Task Date:</td>
-                            <td>
-                                <input type="date" name="date" value={task.date} onChange={handleChange} />
+                            <td class="px-4 py-2">Task Date:</td>
+                            <td class="px-4 py-2">
+                                <input class="bg-gray-500 rounded-lg p-2" type="date" name="date" value={task.date} onChange={handleChange} />
                                 <p className="error">{errors.date ? errors.date.message : null}</p>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <button onClick={handleBack}>BACK</button>
-                <button type="submit" style={{ marginLeft: '10px' }}>UPDATE</button>
+                <button class="mb-5 mt-5 px-4 py-2 text-white bg-blue-500  hover:bg-blue-600 font-semibold rounded-lg shadow-md" onClick={handleBack}>BACK</button>
+                <button class="mb-5 mt-5 px-4 py-2 text-white bg-green-500  hover:bg-green-600 font-semibold rounded-lg shadow-md" type="submit" style={{ marginLeft: '10px' }}>UPDATE</button>
             </form>
         </div>
     );

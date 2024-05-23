@@ -11,17 +11,17 @@ const Nav = ({ taskId }) => {
     const isUpdatePage = location.pathname.includes('/update/');
 
     return (
-        <div>
-            {isHomePage && <h1>To Do List</h1>}
-            {isHomePage && <p>Let's get this done!</p>}
-            {isAddTaskPage && <h1>To Do List</h1>}
-            {isAddTaskPage && <p>Add a new task</p>}
-            {isDetailsPage && <h1>To Do List</h1>}
+        <div class=" space-y-10">
+            {isHomePage && <h1 class="underline font-bold text-6xl flex justify-center">To Do List</h1>}
+            {isHomePage && <p class="flex justify-center italic text-2xl  text-blue-500 font-bold">Let's get this done!</p>}
+            {isAddTaskPage && <h1 class="underline font-bold text-6xl flex justify-center">To Do List</h1>}
+            {isAddTaskPage && <p class="flex justify-center text-3xl  text-blue-500 font-bold">Add a new task</p>}
+            {isDetailsPage && <h1 class="underline font-bold text-6xl flex justify-center">To Do List</h1>}
             <nav className="upper-right">
-                {isHomePage && <Link to="/create">add a new task</Link>}
-                {isAddTaskPage && <Link to="/">back to home</Link>}
-                {isDetailsPage && <Link to="/">back to home</Link>}
-                {isUpdatePage && <Link to={`/dets/${taskId}`}>task details</Link>}
+                {isHomePage && <Link class="px-4 py-2 text-white bg-blue-500  hover:bg-blue-600 font-semibold rounded-lg shadow-md" to="/create">+ Add New Task</Link>}
+                {isAddTaskPage && <Link class="px-4 py-2 text-white bg-blue-500  hover:bg-blue-600 font-semibold rounded-lg shadow-md" to="/">Home</Link>}
+                {isDetailsPage && <Link class="px-4 py-2 text-white bg-blue-500  hover:bg-blue-600 font-semibold rounded-lg shadow-md" to="/">Home</Link>}
+                {isUpdatePage && <Link class="px-4 py-2 text-white bg-blue-500  hover:bg-blue-600 font-semibold rounded-lg shadow-md" to={`/dets/${taskId}`}>Task Details</Link>}
             </nav>
         </div>
     );
