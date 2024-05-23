@@ -58,4 +58,19 @@ export async function findOneTask(req, res) {
   }
 }
 
+export async function toggleTaskCompletion(req, res) {
+  try {
+    const task = await Todo.findById(req.params.id);
+    if (!task) {
+      return res.status(404).json({ message: 'Task not found' });
+    }
+    task.isCompleted = !task.isCompleted;
+    await task.save();
+    res.status(200).json(task);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+}
+
 // export { createTask, getAllTasks, updateOneTask, deleteOneTask, findOneTask };
